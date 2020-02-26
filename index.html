@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Progress Bar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <style>
+        .container {
+            margin-top: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-background {
+            background-color: grey;
+            width: 1000px;
+            height: 20px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        .progress-bar{
+            background-color: green;
+            width: 0%;
+            height: 20px;
+        }
+    </style>
+    <script>
+        let progress = 0;
+        function aumentarBarra() {
+            if (progress < 100) {
+                progress++;
+            }
+            let element = document.getElementsByClassName('progress-bar');
+            element[0].style.width = `${progress}%`;
+        }
+
+        function diminuirBarra() {
+            if (progress > 0) {
+                progress--;
+            }
+            let element = document.getElementsByClassName('progress-bar');
+            element[0].style.width = `${progress}%`;
+        }
+    </script>
+
+
+    <div class="container">
+        <div class="progress-background">
+            <div class="progress-bar"> 
+
+            </div>
+        </div>
+
+        <div class="buttons">
+            <input type="button" onclick="diminuirBarra()" value="<" />
+            <input type="button" onclick="aumentarBarra()" value=">" />
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
